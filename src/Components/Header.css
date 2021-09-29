@@ -1,0 +1,11 @@
+.header{
+    background: aliceblue;
+    background-image: url(../assets/46-468575_freeuse-stock-cloud-png-clipart-blue-cartoon-cloud.png);
+    background-size: 5rem;
+    background-repeat: no-repeat;
+    height: 5rem;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
