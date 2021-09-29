@@ -22,7 +22,6 @@ const Weather = (props) => {
                 {minmaxTemp(props.temp_min, props.temp_max)}
                 <h4 className="py-3">{props.description}</h4>
             </div>
-        
         </div>
      );
 }

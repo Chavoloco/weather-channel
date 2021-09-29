@@ -40,18 +40,6 @@ class App extends React.Component{
     }
   }
 
-  // setCity = (city) =>{
-  //   this.setState({
-  //     city: city
-  //   })
-  // }
-
-  // setCountry = (country) =>{
-  //   this.setState({
-  //     country: country
-  //   })
-  // }
-
   setCentigrade = (centigrade) =>{
     this.setState({
       centigrade : centigrade
@@ -129,14 +117,13 @@ class App extends React.Component{
       const response = await apiCall.json()
 
       if (response.cod === "404") {
-        console.log(response);
         this.setState({error2: true})
     } else {
 
       this.setState({
         city: response.name,
         country: response.sys.country,
-        error2: false
+        error2: false,
       })
     // let city = response.name
     // let country = response.sys.country
@@ -156,7 +143,6 @@ class App extends React.Component{
 
     } else {
       this.setState({error: true})
-      console.log("aaaaaaaaaaa");
     }
 
   }

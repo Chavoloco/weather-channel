@@ -5,9 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: rgba(38, 23, 173, 0.467); */
   background-image: url('./assets/blur-background-1187974.jpg');
   background-size: cover;
-  background-repeat: repeat-y;
+  background-repeat: repeat-y; 
  /* background-repeat: no-repeat;  */
 }
 
