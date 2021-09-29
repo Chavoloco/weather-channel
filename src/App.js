@@ -115,6 +115,12 @@ class App extends React.Component{
   
   getWeather = async (e) =>{
     e.preventDefault()
+
+    this.setState({
+      error: false,
+      error2: false
+    })
+
     const city = e.target.elements.city.value
     const country = e.target.elements.country.value
 
@@ -122,33 +128,32 @@ class App extends React.Component{
       const apiCall = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${API_KEY}`)
       const response = await apiCall.json()
 
-      if (response.hasOwnProperty('sys.country')) {
-        console.log("hola");
-        this.setState({
-          city: response.name,
-          country: response.sys.country
-        })
-
-      // let city = response.name
-      // let country = response.sys.country
-      let centigrade = response.main.temp
-      let temp_max = response.main.temp_max
-      let temp_min = response.main.temp_min
-      let description = response.weather[0].description
-      let weatherIconId = response.weather[0].id
-
-      // this.setCity(city)
-      // this.setCountry(country)
-      this.setCentigrade(centigrade)
-      this.setTempMax(temp_max)
-      this.setTempMin(temp_min)
-      this.setDescription( description )
-      this.getWeatherIcon(this.weatherIcons, weatherIconId)
-
+      if (response.cod === "404") {
+        console.log(response);
+        this.setState({error2: true})
     } else {
-      this.setState({error2: true})
+
+      this.setState({
+        city: response.name,
+        country: response.sys.country,
+        error2: false
+      })
+    // let city = response.name
+    // let country = response.sys.country
+    let centigrade = response.main.temp
+    let temp_max = response.main.temp_max
+    let temp_min = response.main.temp_min
+    let description = response.weather[0].description
+    let weatherIconId = response.weather[0].id
+    // this.setCity(city)
+    // this.setCountry(country)
+    this.setCentigrade(centigrade)
+    this.setTempMax(temp_max)
+    this.setTempMin(temp_min)
+    this.setDescription( description )
+    this.getWeatherIcon(this.weatherIcons, weatherIconId)
     }
-    
+
     } else {
       this.setState({error: true})
     }
