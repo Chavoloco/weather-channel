@@ -125,7 +125,7 @@ class App extends React.Component{
     const country = e.target.elements.country.value
 
     if (city && country) {
-      const apiCall = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${API_KEY}`)
+      const apiCall = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${API_KEY}`)
       const response = await apiCall.json()
 
       if (response.cod === "404") {
